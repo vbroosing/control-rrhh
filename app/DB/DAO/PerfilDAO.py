@@ -5,7 +5,7 @@ from ..models.PerfilDTO import Perfil
 
 @dataclass
 class PerfilDAO:
-
+    '''Esta clase controla las consultas que podemos hacer a la tabla Perfiles y maneja sus restricciones'''
     perfil: Perfil
 
     def insertar_perfil(self, perfil):

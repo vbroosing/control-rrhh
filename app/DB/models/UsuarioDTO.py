@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Usuario:
+    '''Esta clase es el modelo de cada registro de la tabla Usuarios, para cumplir el contrato del dato en bd.'''
     trabajador_id:int
     perfil_id: int
     nombre:str

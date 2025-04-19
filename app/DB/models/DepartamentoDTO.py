@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Departamento:
+    '''Esta clase es el modelo de cada registro de la tabla Depaartamentos, para cumplir el contrato del dato en bd.'''
     area_id: int
     nombre: str
 

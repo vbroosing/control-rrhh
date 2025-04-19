@@ -5,7 +5,7 @@ from ..models.UsuarioDTO import Usuario
 
 @dataclass
 class UsuarioDAO:
-    
+    '''Esta clase controla las consultas que podemos hacer a la tabla Usuarios y maneja sus restricciones'''
     usuario: Usuario
 
     def insertarPerfil(self, usuario):

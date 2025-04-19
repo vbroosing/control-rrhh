@@ -5,7 +5,7 @@ from ..models.AreaDTO import Area
 
 @dataclass
 class AreaDAO:
-
+    '''Esta clase controla las consultas que podemos hacer a la tabla Areas y maneja sus restricciones'''
     area: Area
 
     def insertar_area(self, area):
