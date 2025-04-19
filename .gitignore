@@ -3,4 +3,4 @@ pyvenv.cfg
 Scripts/
 Include/
 Lib/
-DB/config/db_config
+DB/config/db_config.py
