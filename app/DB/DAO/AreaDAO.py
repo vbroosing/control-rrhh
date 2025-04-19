@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from .connector import connection
+from ..config.Connection import Connection
+from ..config.db_config import config
 from ..models.AreaDTO import Area
 
 @dataclass
@@ -10,7 +11,7 @@ class AreaDAO:
     def insertar_area(self, area):
         try:
             sql = "insert into areas (nombre) values (%s)"
-            conn = connection()
+            conn = Connection(config)
             cursor = conn.cursor()
             cursor.execute(sql, (area.nombre, ))
             conn.commit()

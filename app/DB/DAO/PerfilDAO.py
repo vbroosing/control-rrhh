@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from .connector import connection
+from ..config.Connection import Connection
+from ..config.db_config import config
 from ..models.PerfilDTO import Perfil
 
 @dataclass
@@ -10,7 +11,7 @@ class PerfilDAO:
     def insertar_perfil(self, perfil):
         try:
             sql = "insert into perfiles (nombre) values (%s);"
-            conn = connection()
+            conn = Connection(config)
             cursor = conn.cursor()
             cursor.execute(sql, (perfil.nombre, ))
             conn.commit()
@@ -21,6 +22,37 @@ class PerfilDAO:
             return False
     
 
+    
+    # def buscar_perfil(self, perfil):
+    #     try:
+    #         sql = "select * from perfiles where rut = %s;"
+    #         conn = conexion()
+    #         cursor = conn.cursor()
+    #         cursor.execute(sql,[rut])
+    #         fila = cursor.fetchone()
+    #         per = Perfil(fila[0],fila[1],fila[2],fila[3], 
+    #                         fila[4],fila[5])
+    #         conn.close()
+    #         return per
+    #     except:
+    #         return False
+    # def actualizar_perfil(self, perfil):
+    #     try:
+    #         sql = "update perfiles set nombre = %s where id = %s;"
+    #         conn = connection()
+    #         cursor = conn.cursor()
+    #         cursor.execute(sql,(perfil.nombre,perfil.id, ))
+    #         conn.commit()
+    #         conn.close()
+    #         return True
+    #     except:
+    #         return False
+
+
+
+
+
+
 
 
 
@@ -31,19 +63,6 @@ class PerfilDAO:
 
 
     
-    # def actualizarPerfil(self, per: Perfil):
-    #     try:
-    #         sql = "update perfil set nombre = %s, direccion = %s, fecha_nacimiento = %s, sexo = %s, codigo_postal = %s where rut = %s;"
-    #         conn = conexion()
-    #         cursor = conn.cursor()
-    #         cursor.execute(sql,(per.nombre,per.direccion, 
-    #                             per.fecha_nacimiento, per.sexo,
-    #                             per.codigo_postal,per.rut))
-    #         conn.commit()
-    #         conn.close()
-    #         return True
-    #     except:
-    #         return False
         
     # def eliminarPerfil(self, per: Perfil):
     #     try:
@@ -74,16 +93,3 @@ class PerfilDAO:
     #     except:
     #         return False
         
-    # def buscarPerfil(self, rut:str):
-    #     try:
-    #         sql = "select * from perfil where rut = %s;"
-    #         conn = conexion()
-    #         cursor = conn.cursor()
-    #         cursor.execute(sql,[rut])
-    #         fila = cursor.fetchone()
-    #         per = Perfil(fila[0],fila[1],fila[2],fila[3], 
-    #                         fila[4],fila[5])
-    #         conn.close()
-    #         return per
-    #     except:
-    #         return False

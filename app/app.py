@@ -4,6 +4,8 @@ from DB import db
 # db.crear_perfil("Trabajador")
 # db.crear_perfil("RRHH")
 # db.crear_perfil("Jefe de RRHH")
+# db.crear_perfil("Gerente General")
+db.crear_perfil("Developer")
 
 # # CREAR AREAS
 # db.crear_area("RRHH")
@@ -12,4 +14,4 @@ from DB import db
 # db.crear_area("Logística y cadena de suministros")
 
 # CREAR DEPARTAMENTOS
-db.crear_departamento("1", "Desarrollo organizacional")
+# db.crear_departamento("1", "Desarrollo organizacional")

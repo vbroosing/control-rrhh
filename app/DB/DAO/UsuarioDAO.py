@@ -1,17 +1,17 @@
 from dataclasses import dataclass
-from .connector import connection
+from ..config.Connection import Connection
+from ..config.db_config import config
 from ..models.UsuarioDTO import Usuario
 
 @dataclass
 class UsuarioDAO:
-
     
     usuario: Usuario
 
     def insertarPerfil(self, usuario):
         try:
             sql = "insert into perfiles (nombre) values (%s);"
-            conn = connection()
+            conn = Connection(config)
             cursor = conn.cursor()
             cursor.execute(sql, (usuario.nombre, ))
             conn.commit()

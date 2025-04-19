@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from .connector import connection
+from ..config.Connection import Connection
+from ..config.db_config import config
 from ..models.DepartamentoDTO import Departamento
 
 @dataclass
@@ -10,7 +11,7 @@ class DepartamentoDAO:
         try:
             sql = "insert into perfiles (area_id, nombre) values (%s, %s);"
             print(sql, (departamento.area_id, departamento.nombre, ))
-            conn = connection()
+            conn = Connection(config)
             cursor = conn.cursor()
             cursor.execute(sql, (departamento.area_id, departamento.nombre, ))
             conn.commit()
