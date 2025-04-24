@@ -30,13 +30,26 @@ def crear_departamento(area_id, nombre):
     print(departamento)
     print(dao.insertar_departamento(departamento))
 
+def leer_usuario(credenciales):
+    usuario = Usuario(0,0,credenciales['nombre'], credenciales['contrasenna'], 0)   
+    dao = UsuarioDAO(usuario)
+    response = dao.buscar_usuario(usuario)
+    # print(response)
+
+    if response:
+        return response
+    else:
+        return "aaaaaaaaaaaaaaaaaaaaaa"
+    
+def actualizar_estado_sesion(usuario):
+    dao = UsuarioDAO(usuario)
+    usuario = dao.actualizar_usuario(usuario)
+    return usuario
 # from datetime import date
 
 #for per in dao.listarPersona():
 #    print(per)
 #    print("========================")
-
 #print(dao.actualizarPersona(p1))
 #print(dao.eliminarPersona(p1))
-
 # print(dao.buscarPersona("111111-1"))

@@ -1,3 +1,3 @@
-from .login import login_def
+from .login import captura_datos
 
-__all__ = [login_def]
+__all__ = [captura_datos]

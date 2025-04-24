@@ -1,0 +1,3 @@
+username: jperez
+password: abcABC123*
+hash: b0449274d1f88c60a759409bd3f3931c
