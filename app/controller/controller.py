@@ -1,15 +1,11 @@
 from .login.login import captura_datos
-# from ..DB.models import UsuarioDTO
+from .sesion.Sesion import Sesion
 
 def login_captura():
     return captura_datos()
 
 def sesion(usuario): 
-    if usuario.sesion == 0:
-        usuario.sesion = 1
-        return usuario
-    else:
-        usuario.sesion = 0
-        return usuario
-
+    sesion = Sesion()
+    usuario = sesion.iniciar_sesion(usuario)
+    return usuario
 

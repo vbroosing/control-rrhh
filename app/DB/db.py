@@ -43,7 +43,7 @@ def leer_usuario(credenciales):
     
 def actualizar_estado_sesion(usuario):
     dao = UsuarioDAO(usuario)
-    usuario = dao.actualizar_usuario(usuario)
+    usuario = dao.actualizar_sesion_usuario(usuario)
     return usuario
 # from datetime import date
 

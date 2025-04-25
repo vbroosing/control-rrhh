@@ -18,8 +18,8 @@ def main():
 
     sesion_activa = controller.sesion(retorno_db)
     print(sesion_activa)
-    db.actualizar_estado_sesion(sesion_activa)
-    # print(sesion_activa)
+    usuario = db.actualizar_estado_sesion(sesion_activa)
+    print(usuario)
 
 
     print("fin main")

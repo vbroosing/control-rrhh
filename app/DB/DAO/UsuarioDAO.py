@@ -40,9 +40,9 @@ class UsuarioDAO:
             print(e)
             return False
 
-    def actualizar_usuario(self, usuario):
+    def actualizar_sesion_usuario(self, usuario):
         try:
-            sql = "set sesion = %s where nombre = %s"
+            sql = "set sesion = (%s where nombre = %s"
             conn = Connection(config)
             cursor = conn.cursor()
             cursor.execute(sql, (usuario.sesion, usuario.nombre))
@@ -50,11 +50,11 @@ class UsuarioDAO:
             for element in usuario:
                 print(element)
             usuario = Usuario(usuario[1], usuario[2], usuario[3], usuario[4], usuario[5])
-            conn.close
             print(usuario)
+            conn.close
             return usuario
         except Exception as e:
-            print
+            print("error")
             print(e)
 
 # SET sesion = FALSE where usuario_id = 1;
