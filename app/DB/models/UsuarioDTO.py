@@ -10,7 +10,11 @@ class Usuario:
     sesion: bool
 
     def __str__(self) -> str:
-        texto = f"Usuario: {self.trabajador_id, self.perfil_id, self.nombre, self.contrasenna, self.sesion}"
+        texto = f"Usuario: {self.trabajador_id, 
+                            self.perfil_id, 
+                            self.nombre, 
+                            self.contrasenna, 
+                            self.sesion}"
         return texto
 
     
