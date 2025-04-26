@@ -6,6 +6,6 @@ def login_captura():
 
 def sesion(usuario): 
     sesion = Sesion()
-    usuario = sesion.iniciar_sesion(usuario)
+    usuario = sesion.controlar_sesion(usuario)
     return usuario
 
