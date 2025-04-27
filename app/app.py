@@ -72,9 +72,18 @@ Ingresa una opción del menú para listar:
             if opcion_menu == 0:
                 usuario = controller.sesion(usuario)
                 return usuario
+            
             elif opcion_menu == 1:
-                print("\nFiltro por sexo\n")
-                input('Presiona enter para regresar al menu')
+                while True:
+                    sexo = input("Ingresa M(Masculino), F(Femenino) ó U(undefined)")
+                    if sexo.upper() == "M" or sexo.upper() == "F" or sexo.upper() == "U":
+                        lista_filtrada_por_sexo = db.leer_trabajadores_por_condicion(usuario, sexo)
+                        break
+                    else:
+                        print("Escoja una opción de la lista")
+                
+                input('\nPresiona enter para regresar al menu\n')
+
             elif opcion_menu == 2:
                 print("\nFiltro por Cargo\n")
                 input('Presiona enter para regresar al menu')

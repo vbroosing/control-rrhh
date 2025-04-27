@@ -2,11 +2,13 @@ from .models.PerfilDTO import Perfil
 from .models.UsuarioDTO import Usuario
 from .models.AreaDTO import Area
 from .models.DepartamentoDTO import Departamento
+from .models.TrabajadorDTO import Trabajador
 
 from .DAO.PerfilDAO import PerfilDAO
 from .DAO.UsuarioDAO import UsuarioDAO
 from .DAO.AreaDAO import AreaDAO
 from .DAO.DepartamentoDAO import DepartamentoDAO
+from .DAO.TrabajadorDAO import TrabajadorDAO
 
 def crear_perfil(nombre):
     perfil = Perfil(nombre)
@@ -18,13 +20,13 @@ def crear_usuario(usuario, **args):
     dao = UsuarioDAO(usuario)
     print(dao.insertar_usuario(usuario))
 
-def crear_area(nombre):
+def crear_area(nombre: str):
     area = Area(nombre)
     dao = AreaDAO(area)
     print(area)
     print(dao.insertar_area(area))
     
-def crear_departamento(area_id, nombre):
+def crear_departamento(area_id: int, nombre: str):
     departamento = Departamento(area_id, nombre)
     dao = DepartamentoDAO(departamento)
     print(departamento)
@@ -41,7 +43,13 @@ def leer_usuario(credenciales):
     else:
         return "aaaaaaaaaaaaaaaaaaaaaa"
     
-def actualizar_estado_sesion(usuario):
+def leer_trabajadores_por_condicion(usuario: Usuario, condicion: str):
+    print(type(usuario))    
+    print(  usuario)    
+    # dao = UsuarioDAO(usuario)
+
+    
+def actualizar_estado_sesion(usuario: Usuario):
     dao = UsuarioDAO(usuario)
     usuario = dao.actualizar_sesion_usuario(usuario)
     return usuario

@@ -2,7 +2,13 @@ from dataclasses import dataclass
 
 @dataclass
 class Carga_familiar:
-    '''Esta clase es el modelo de cada registro de la tabla Areas, para cumplir el contrato del dato en bd.'''
+    '''Modelo de carga familiar - 
+    trabajador_id: int -
+    rut: str -
+    nombre: str -
+    apellido: str -
+    parentesco: str -
+    sexo: bool'''
     trabajador_id: int
     rut: str
     nombre: str
