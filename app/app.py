@@ -6,7 +6,7 @@ from DB.models.UsuarioDTO import Usuario
 # SE MUESTRA PANTALLA DE INICIO
 def main():
     print("inicio main")
-    # USUARIO INGRESA SUS CREDENCIALES
+    # # USUARIO INGRESA SUS CREDENCIALES
     # captura = controller.login_captura()
     # # print(captura)
     # nombre, contrasenna = captura
@@ -29,7 +29,7 @@ def main():
         # REDIRIGE A FUNCIONES PROPIAS DEL PERFIL
         if usuario.perfil_id == 1:
             pass
-        elif usuario.perfil == 2:
+        elif usuario.perfil_id == 2:
             pass
         elif usuario.perfil_id == 3:
             sesion_jefe_RRHH(usuario)
@@ -54,7 +54,13 @@ def sesion_jefe_RRHH(usuario: Usuario):
     while True:
         print('sesion jefe RRHH\n')
         try:
-            opcion_menu = input("Escribe 0 para cerrar sesión: ")
+            print(f'''Bienvenido {usuario.nombre}
+========================
+Ingresa una opción del menú para listar:
+1) Por Sexo
+2) Por cargo
+3) Por área y departamento''')
+            opcion_menu = input("\n ó escribe 0 para cerrar sesión: ")
             opcion_menu = int(opcion_menu)
         except:
             print('error')
@@ -62,6 +68,20 @@ def sesion_jefe_RRHH(usuario: Usuario):
         if opcion_menu == 0:
             usuario = controller.sesion(usuario)
             return usuario
+        
+        elif opcion_menu == 1:
+            print("\nFiltro por sexo\n")
+            input('Presiona enter para regresar al menu')
+        elif opcion_menu == 2:
+            print("\nFiltro por Cargo\n")
+            input('Presiona enter para regresar al menu')
+        elif opcion_menu == 3:
+            print("\nFiltro por Área\n")
+            input('Presiona enter para regresar al menu')
+        else:
+            print("\nDebes ingresar una opcion del menú!!\n")
+            input('Presiona enter para regresar al menu')
+            
 
 
 main()
