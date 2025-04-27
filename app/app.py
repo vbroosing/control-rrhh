@@ -2,6 +2,8 @@ from DB import db
 from controller import controller
 from modules.modules import hash_password 
 from DB.models.UsuarioDTO import Usuario
+from DB.models.TrabajadorDTO import Trabajador
+from datetime import date
 
 # SE MUESTRA PANTALLA DE INICIO
 def main():
@@ -38,7 +40,6 @@ def main():
     else:
         print('Sesion iniciada en otro dispositivo !')    
 
-
     print('Hasta luego!')
     print("fin main")
     
@@ -47,6 +48,11 @@ def main():
 # SE MUESTRA INICIO DEL TRABAJADOR CON EL MENU DE OPCIONES:
     # MOSTRAR/MODIFICAR DATOS PERSONALES
     # MOSTRAR DATOS LABORALES
+def sesion_trabajador(usuario: Usuario):
+    pass
+
+def sesion_RRHH(usuario: Usuario):
+    pass
 
 # # PERFIL JEFE RRHH
 # SE MUESTRA EL INICIO DEL JEFE DE RRHH
@@ -62,44 +68,27 @@ Ingresa una opción del menú para listar:
 3) Por área y departamento''')
             opcion_menu = input("\n ó escribe 0 para cerrar sesión: ")
             opcion_menu = int(opcion_menu)
+
+            if opcion_menu == 0:
+                usuario = controller.sesion(usuario)
+                return usuario
+            elif opcion_menu == 1:
+                print("\nFiltro por sexo\n")
+                input('Presiona enter para regresar al menu')
+            elif opcion_menu == 2:
+                print("\nFiltro por Cargo\n")
+                input('Presiona enter para regresar al menu')
+            elif opcion_menu == 3:
+                print("\nFiltro por Área\n")
+                input('Presiona enter para regresar al menu')
+            else:
+                print("\nDebes ingresar una opcion del menú!!\n")
+                input('Presiona enter para regresar al menu')                
         except:
             print('error')
 
-        if opcion_menu == 0:
-            usuario = controller.sesion(usuario)
-            return usuario
-        
-        elif opcion_menu == 1:
-            print("\nFiltro por sexo\n")
-            input('Presiona enter para regresar al menu')
-        elif opcion_menu == 2:
-            print("\nFiltro por Cargo\n")
-            input('Presiona enter para regresar al menu')
-        elif opcion_menu == 3:
-            print("\nFiltro por Área\n")
-            input('Presiona enter para regresar al menu')
-        else:
-            print("\nDebes ingresar una opcion del menú!!\n")
-            input('Presiona enter para regresar al menu')
-            
-
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # # CREAR PERFILES
 # db.crear_perfil("Trabajador")
 # db.crear_perfil("RRHH")
